@@ -67,7 +67,6 @@ export const getMovie = (args) => {
       throw error
    });
   };
-
   export const getMovieReviews = ({ queryKey }) => {
     const [, idPart] = queryKey;
     const { id } = idPart;

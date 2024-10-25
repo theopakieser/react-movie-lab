@@ -11,6 +11,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -24,21 +25,21 @@ const queryClient = new QueryClient({
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-    <SiteHeader />
-    <MoviesContextProvider>
-    <Routes>
-      <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
-      <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
-      <Route path="/movies/:id" element={<MoviePage />} />
-      <Route path="/" element={<HomePage />} />
-      <Route path="*" element={ <Navigate to="/" /> } />
-      <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
-    </Routes>
-    </MoviesContextProvider>
-  </BrowserRouter>
-  <ReactQueryDevtools initialIsOpen={false} />
-  </QueryClientProvider>
+      <BrowserRouter>
+        <SiteHeader />
+        <MoviesContextProvider>
+          <Routes>
+            <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
+            <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
+            <Route path="/movies/:id" element={<MoviePage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="*" element={ <Navigate to="/" /> } />
+            <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
+          </Routes>
+        </MoviesContextProvider>
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 };
 
