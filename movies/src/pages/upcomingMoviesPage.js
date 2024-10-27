@@ -17,6 +17,9 @@ const UpcomingMoviesPage = () => {
   }
 
   const movies = data.results;
+  const mustWatch = movies.filter(m => m.favorite)
+  localStorage.setItem('mustWatch', JSON.stringify(mustWatch))
+  const addToMustWatch = (movieId) => true 
 
   return (
     <PageTemplate
