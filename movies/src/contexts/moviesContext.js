@@ -39,7 +39,7 @@ const MoviesContextProvider = (props) => {
     setMustWatch(newMustWatch)
   };
 
-  const removeFromMustWatch = (movie) => {
+  const removeFromWatchList = (movie) => {
     setMustWatch( mustWatch.filter(
       (mId) => mId !== movie.id
     ) )
