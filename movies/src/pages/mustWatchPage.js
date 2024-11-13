@@ -46,4 +46,4 @@ const MustWatchPage = () => {
   );
 };
 
-export default FavoriteMoviesPage;
+export default MustWatchPage;
