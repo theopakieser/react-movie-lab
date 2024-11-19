@@ -1,13 +1,13 @@
 import React from "react";
-import { getNowPlayingMovies } from "../api/tmdb-api";
+import { getPopularMovies } from "../api/tmdb-api";
 import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToWatchListIcon from "../components/cardIcons/addToWatchList";
 
-const NowPlayingMoviesPage = (props) => {
+const PopularMoviesPage = (props) => {
 
-  const {  data, error, isLoading, isError }  = useQuery('now_playing', getNowPlayingMovies)
+  const {  data, error, isLoading, isError }  = useQuery('popular', getPopularMovies)
 
   if (isLoading) {
     return <Spinner />
@@ -25,7 +25,7 @@ const NowPlayingMoviesPage = (props) => {
 
   return (
     <PageTemplate
-      title="Now Playing Movies"
+      title="Popular Movies"
       movies={movies}
       action={(movie) => {
         return <AddToWatchListIcon movie={movie} />
@@ -33,4 +33,4 @@ const NowPlayingMoviesPage = (props) => {
     />
   );
 };
-export default NowPlayingMoviesPage;
+export default PopularMoviesPage;
